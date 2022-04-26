@@ -5,10 +5,12 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"os"
 	"pakawai_service/cmd/auth/repository"
 	"pakawai_service/cmd/auth/service"
 	"pakawai_service/configs"
 	_ "pakawai_service/configs"
+	"strconv"
 
 	pb "pakawai_service/common/model"
 
@@ -22,7 +24,11 @@ var (
 )
 
 func init() {
-	flag.IntVar(&port, "port", 3000, "authentication service port")
+	port := 3000
+	if os.Getenv("PORT_AUTH") != "" {
+		port, _ = strconv.Atoi(os.Getenv("PORT_AUTH"))
+	}
+	flag.IntVar(&port, "port", port, "authentication service port")
 	flag.BoolVar(&local, "local", true, "run authentication service local")
 	flag.Parse()
 }

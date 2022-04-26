@@ -5,9 +5,11 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"pakawai_service/api/resthandlers"
 	"pakawai_service/api/routes"
 	pb "pakawai_service/common/model"
+	"strconv"
 
 	"github.com/gorilla/mux"
 	"google.golang.org/grpc"
@@ -19,8 +21,16 @@ var (
 )
 
 func init() {
-	flag.IntVar(&port, "port", 9000, "api service port")
-	flag.StringVar(&authAddr, "auth_addr", "localhost:3000", "authenticaton service address")
+	port := 8080
+	port_service := os.Getenv("PORT_AUTH")
+	if os.Getenv("PORT_CLIENT") != "" {
+		port, _ = strconv.Atoi(os.Getenv("PORT_CLIENT"))
+	}
+	if port_service != "" {
+		port_service = strconv.Itoa(3000)
+	}
+	flag.IntVar(&port, "port", port, "api service port")
+	flag.StringVar(&authAddr, "auth_addr", port_service, "authenticaton service address")
 	flag.Parse()
 }
 
