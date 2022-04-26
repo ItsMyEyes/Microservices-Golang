@@ -4,7 +4,7 @@
   <h3 align="center">Microservice Golang (GRPC)</h3>
 
   <p align="center">
-    Backend Blog Like Medium
+    Example authentication service with proto buff, mongo, redis
     <br />
     <br />
     <a href="https://github.com/ItsMyEyes/microservices-golang/issues">Report Bug</a>
