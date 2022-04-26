@@ -56,7 +56,9 @@ go build
 GO_ENV=
 MONGO_URL=mongodb://<host>:<port>
 REDIS_HOST=<host>:<port>
-REDIS_PASSWORD=
+REDIS_PASSWORD=<secret>
+PORT_AUTH=<port>
+PORT_CLIENT=<port>
 ```
 
 
