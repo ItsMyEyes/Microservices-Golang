@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"pakawai_service/client/resthandlers"
-	"pakawai_service/client/routes"
+	"pakawai_service/api/resthandlers"
+	"pakawai_service/api/routes"
 	pb "pakawai_service/common/model"
 
 	"github.com/gorilla/mux"

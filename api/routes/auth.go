@@ -2,7 +2,7 @@ package routes
 
 import (
 	"net/http"
-	"pakawai_service/client/resthandlers"
+	"pakawai_service/api/resthandlers"
 )
 
 func NewAuthRoutes(authHandlers resthandlers.AuthHandlers) []*Route {

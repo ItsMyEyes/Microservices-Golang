@@ -5,7 +5,7 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
-	"pakawai_service/client/restutil"
+	"pakawai_service/api/restutil"
 	pb "pakawai_service/common/model"
 	"time"
 
