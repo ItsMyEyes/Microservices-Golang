@@ -40,7 +40,13 @@ cp .env.example .env
 go run ./main.go
 ```
 
-- Build for Production (Follow you os)
+- Running client 
+```
+cd client
+go run ./main.go
+```
+
+- Build for Production service (Follow you os)
 ```
 go build 
 ```
