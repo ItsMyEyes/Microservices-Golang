@@ -24,7 +24,7 @@ var (
 )
 
 func init() {
-	port := 3000
+	port = 3000
 	if os.Getenv("PORT_AUTH") != "" {
 		port, _ = strconv.Atoi(os.Getenv("PORT_AUTH"))
 	}
@@ -44,7 +44,7 @@ func main() {
 	userRepository := repository.NewUserRepository(*configs.Client)
 	authService := service.NewAuthService(userRepository)
 
-	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
+	lis, err := net.Listen("tcp", fmt.Sprintf("0.0.0.0:%d", port))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
@@ -52,7 +52,7 @@ func main() {
 	grpcServer := grpc.NewServer()
 	pb.RegisterAuthServiceServer(grpcServer, authService)
 
-	log.Printf("Authentication service running on [::]:%d\n", port)
+	log.Printf("Authentication service running on 0.0.0.0:%d\n", port)
 
 	grpcServer.Serve(lis)
 }
