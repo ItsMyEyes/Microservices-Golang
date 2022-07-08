@@ -42,8 +42,10 @@ go run ./main.go
 
 - Running client 
 ```
-cd client
-go run ./main.go
+git clone https://github.com/ItsMyEyes/Client-Micro-Golang
+cd Client-Micro-Golang
+go mod tidy
+go run ./main.go --auth_addr="{port_auth}" --port="{port}"
 ```
 
 - Build for Production service (Follow you os)
